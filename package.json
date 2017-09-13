@@ -1,0 +1,94 @@
+{
+  "name": "@beardedtim/redux-lens",
+  "version": "0.0.0-development",
+  "description": "A few helper functions to help with handling redux state with ramda lenses",
+  "author": "beardedtim <timiroberts@gmail.com>",
+  "license": "MIT",
+  "main": "index.js",
+  "module": "es/index.js",
+  "files": [
+    "es",
+    "index.js",
+    "umd"
+  ],
+  "keywords": [
+    "redux",
+    "react",
+    "lenses"
+  ],
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "^21.0.2",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.8",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "commitizen": "^2.9.6",
+    "coveralls": "^2.13.1",
+    "cz-cli": "^1.0.0",
+    "cz-conventional-changelog": "^2.0.0",
+    "gzip-size": "^3.0.0",
+    "husky": "^0.13.4",
+    "jest": "^21.0.2",
+    "lint-staged": "^3.6.0",
+    "prettier-standard": "^6.0.0",
+    "pretty-bytes": "^4.0.2",
+    "rollup": "^0.47.4",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-uglify": "^2.0.1",
+    "semantic-release": "^7.0.2",
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.3"
+  },
+  "peerDependencies": {
+    "react": ">=15"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "prop-types": "^15.5.10"
+  },
+  "lint-staged": {
+    "modules/*.js": [
+      "prettier-standard",
+      "git add"
+    ]
+  },
+  "scripts": {
+    "precommit": "lint-staged",
+    "commit": "git-cz",
+    "build": "node ./tools/build.js",
+    "prepublishOnly": "node ./tools/build.js",
+    "lint": "standard | snazzy",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "coverage": "jest --coverage",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "babel": {
+    "presets": [
+      "./.babelrc.js"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  },
+  "nyc": {
+    "include": [
+      "modules/**/*"
+    ]
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/beardedtim/redux-lenses.git"
+  }
+}
